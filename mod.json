@@ -1,0 +1,28 @@
+
+{
+  "geode": "5.11.2",
+  "gd": {
+    "android": "2.2081"
+  },
+  "version": "v1.0.0",
+  "id": "ai.predictivebuffer.mobile",
+  "name": "Predictive Input Buffer Mobile",
+  "developer": "Reimplementation",
+  "description": "Mobile-friendly input buffer with configurable stages.",
+  "settings": {
+    "stage": {
+      "type": "int",
+      "name": "Buffer stage",
+      "description": "0 = 2 ticks, 1 = 4 ticks, 2 = 8 ticks, 3 = 16 ticks (wave 8), 4 = Off.",
+      "default": 0,
+      "min": 0,
+      "max": 4
+    },
+    "verbose-log": {
+      "type": "bool",
+      "name": "Verbose logging",
+      "description": "Log buffered input events.",
+      "default": false
+    }
+  }
+}
