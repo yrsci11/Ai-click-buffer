@@ -1,0 +1,31 @@
+
+name: Build Android Geode Mod
+
+on:
+  workflow_dispatch:
+  push:
+    branches: ["**"]
+
+jobs:
+  build-android64:
+    name: Build Android ARM64
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build Geode mod
+        id: build
+        uses: geode-sdk/build-geode-mod@main
+        with:
+          target: Android64
+          sdk: latest
+          path: .
+
+      - name: Upload mod artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Predictive-Input-Buffer-Android64
+          path: ${{ steps.build.outputs.build-output }}/*.geode
+          if-no-files-found: error
